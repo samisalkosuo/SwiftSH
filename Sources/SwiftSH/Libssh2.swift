@@ -157,7 +157,8 @@ fileprivate extension Int32 {
             return .invalidSession
         }
 
-        switch UInt32(libssh2_sftp_last_error(sftp)) {
+        //switch UInt32(libssh2_sftp_last_error(sftp)) {
+        switch libssh2_sftp_last_error(sftp) {
         case LIBSSH2_FX_EOF: return .endOfFile
         case LIBSSH2_FX_NO_SUCH_FILE: return .noSuchFile
         case LIBSSH2_FX_PERMISSION_DENIED: return .permissionDenied
